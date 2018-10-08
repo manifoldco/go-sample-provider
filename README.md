@@ -1,6 +1,6 @@
 # go-sample-provider
 
-This repo contains a minimal provider using only Go standard library. It builds bears as a service!
+This repo contains a minimal provider using only Go. It builds bears as a service!
 
 ## Requirements
 
