@@ -8,6 +8,8 @@ cache:
   - "$GOPATH/bin"
   - "$GOPATH/pkg"
 install: make install
+env:
+- GO111MODULE: on
 script:
 - env GO111MODULE=on go run cmd/server/main.go
 - make test
