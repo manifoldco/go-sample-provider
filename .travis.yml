@@ -9,7 +9,8 @@ cache:
   - "$GOPATH/pkg"
 install: make install
 env:
-- GO111MODULE: on
+  global:
+  - GO111MODULE="true"
 script:
 - env GO111MODULE=on go run cmd/server/main.go
 - make test
