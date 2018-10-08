@@ -9,8 +9,11 @@ This repo contains a minimal provider using only Go standard library. It builds 
 ## Setup
 
 ```
-go build ./...
-go get github.com/manifoldco
-go install github.com/manifoldco/grafton/cmd
-grafton generate
+make install
+```
+
+## Testing
+
+```
+make test
 ```

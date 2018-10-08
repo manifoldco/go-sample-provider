@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -63,6 +64,8 @@ func main() {
 		Addr:    ":" + port,
 		Handler: mux,
 	}
+
+	fmt.Printf("Server listening on port %s\n", port)
 
 	err = srv.ListenAndServe()
 	if err != nil {
