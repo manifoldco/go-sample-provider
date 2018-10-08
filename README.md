@@ -14,6 +14,14 @@ make install
 
 ## Testing
 
+In one terminal start the server with:
+
+```
+go run cmd/server/main.go
+```
+
+And in another terminal run:
+
 ```
 make test
 ```
