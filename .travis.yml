@@ -9,4 +9,4 @@ cache:
   - "$GOPATH/pkg"
 install: make install
 script:
-- manifold test
+- make test
