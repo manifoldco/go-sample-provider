@@ -5,6 +5,9 @@ install:
 	go build -o grafton github.com/manifoldco/grafton/cmd
 	./grafton generate
 
+server:
+	env GO111MODULE=on go run cmd/server/main.go &
+
 test:
 	./grafton test --product bear \
 	  --plan ursa-minor --new-plan ursa-major \
