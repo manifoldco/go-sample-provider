@@ -9,5 +9,5 @@ cache:
   - "$GOPATH/pkg"
 install: make install
 script:
-- env GO111MODULE=on go run cmd/server/main.go &
+- env GO111MODULE=on go run cmd/server/main.go
 - make test
