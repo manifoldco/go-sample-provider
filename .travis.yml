@@ -2,6 +2,7 @@ dist: trusty
 language: go
 go:
 - "1.11"
+- master
 cache:
 - directories:
   - "$GOPATH/bin"
@@ -9,3 +10,5 @@ cache:
 install: make install
 script:
 - manifold test
+env:
+- GO111MODULE: on
