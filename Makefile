@@ -1,3 +1,5 @@
+GO111MODULE := on
+
 install:
 	go build ./...
 	go install github.com/mattn/go-sqlite3

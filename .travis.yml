@@ -10,5 +10,3 @@ cache:
 install: make install
 script:
 - manifold test
-env:
-- GO111MODULE: on
