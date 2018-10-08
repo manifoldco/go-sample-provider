@@ -1,8 +1,6 @@
-GO111MODULE := on
-
 install:
-	go build ./...
-	go install github.com/mattn/go-sqlite3
+	env GO111MODULE=on go build ./...
+	env GO111MODULE=on go install github.com/mattn/go-sqlite3
 	go get github.com/manifoldco/grafton/cmd
 	go build -o grafton github.com/manifoldco/grafton/cmd
 	./grafton generate
