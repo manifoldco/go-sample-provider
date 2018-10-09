@@ -10,7 +10,9 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"os/signal"
 	"reflect"
+	"syscall"
 	"time"
 
 	"github.com/manifoldco/go-manifold"
@@ -74,7 +76,12 @@ func main() {
 		}
 
 	} else {
+		quit := make(chan os.Signal, 1)
+		signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+
 		log.Printf("Listening bear on port %s", port)
+
+		<-quit
 	}
 
 	os.Remove("database.sqlite")
