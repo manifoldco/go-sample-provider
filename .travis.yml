@@ -12,5 +12,4 @@ env:
   global:
   - GO111MODULE="on"
 script:
-- make server
 - make test
