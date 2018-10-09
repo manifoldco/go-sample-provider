@@ -1,0 +1,15 @@
+dist: trusty
+language: go
+go:
+- "1.11"
+- master
+cache:
+- directories:
+  - "$GOPATH/bin"
+  - "$GOPATH/pkg"
+install: make install
+env:
+  global:
+  - GO111MODULE="on"
+script:
+- make test

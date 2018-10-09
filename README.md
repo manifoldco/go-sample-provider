@@ -17,3 +17,5 @@ make install
 ```
 make test
 ```
+
+This will start the server and run [Grafton](https://github.com/manifoldco/grafton) acceptance tests.
