@@ -28,11 +28,10 @@ const (
 	connectorURL = "http://localhost:3001/v1/oauth/tokens"
 )
 
-// TODO: define my own features
 var features = manifold.FeatureMap{
-	//"age":       2,
-	//"ready":     true,
-	//"hat_color": "red",
+	"age":       2,
+	"ready":     true,
+	"hat_color": "red",
 }
 
 func init() {
