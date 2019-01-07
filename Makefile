@@ -8,7 +8,7 @@ install:
 	./grafton generate
 
 test:
-	go run cmd/server/main.go --test=true
+	env GO111MODULE=on go run cmd/server/main.go --test=true
 
 serve:
-	go run cmd/server/main.go
+	env GO111MODULE=on go run cmd/server/main.go
