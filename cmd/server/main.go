@@ -15,14 +15,16 @@ import (
 	"syscall"
 	"time"
 
+	"golang.org/x/oauth2"
+
 	"github.com/manifoldco/go-manifold"
 	"github.com/manifoldco/go-sample-provider/api"
 	"github.com/manifoldco/go-sample-provider/db"
 	"github.com/manifoldco/go-sample-provider/primitives"
-	"golang.org/x/oauth2"
 )
 
 var test bool
+var graftonPath string
 
 const (
 	clientID     = "21jtaatqj8y5t0kctb2ejr6jev5w8"
@@ -39,6 +41,7 @@ var features = manifold.FeatureMap{
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	flag.BoolVar(&test, "test", false, "run grafton test")
+	flag.StringVar(&graftonPath, "grafton-path", "./grafton", "path of grafton bin")
 }
 
 func main() {
@@ -70,7 +73,7 @@ func main() {
 			"plan-features": features,
 		}
 
-		err = testGrafton(port, flags)
+		err = testGrafton(graftonPath, port, flags)
 		if err != nil {
 			log.Print(err)
 		}
@@ -131,14 +134,14 @@ func startServer(port, database string) (*http.Server, error) {
 	return srv, nil
 }
 
-func testGrafton(port string, flags map[string]interface{}) error {
+func testGrafton(path, port string, flags map[string]interface{}) error {
 	args := []string{"test"}
 
 	args = append(args, parseFlags(flags)...)
 
 	args = append(args, "http://localhost:"+port)
 
-	cmd := exec.Command("./grafton", args...)
+	cmd := exec.Command(path, args...)
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
