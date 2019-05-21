@@ -38,6 +38,11 @@ var features = manifold.FeatureMap{
 	"hat_color": "red",
 }
 
+var meteredFeatures = manifold.FeatureMap{
+	"storage":         30,
+	"processing-time": 5,
+}
+
 func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	flag.BoolVar(&test, "test", false, "run grafton test")
@@ -68,9 +73,9 @@ func main() {
 			"client-id":      clientID,
 			"client-secret":  clientSecret,
 			"connector-port": "3001",
-			"exclude":        []string{"plan-change", "resource-measures"},
 			//"log":            "verbose",
 			"plan-features": features,
+			"resource-measures": meteredFeatures,
 		}
 
 		err = testGrafton(graftonPath, port, flags)
