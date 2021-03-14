@@ -21,6 +21,8 @@ func NewServeMux(db primitives.Database, pkey string, oauth oauth2.Config) (*htt
 		switch r.Method {
 		case "PUT":
 			provision(w, r, db)
+		case "PATCH":
+			changePlan(w, r, db)
 		case "DELETE":
 			deprovision(w, r, db)
 		default:
